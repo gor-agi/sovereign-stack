@@ -1,0 +1,15 @@
+{
+  "id": "example-001",
+  "name": "summarize-article-to-vault",
+  "scope": {
+    "goal_types": ["ingest article", "extract key points"],
+    "constraints": ["local only", "no external upload"],
+    "notes": "Validated on personal article archive"
+  },
+  "success_count": 3,
+  "expected_outcome_definition": "Structured summary written to local vault with source citation and no external call",
+  "body": "1. Ingest via NeMo Retriever Parse.\n2. Extract entities and claims.\n3. Write markdown note with provenance.\n4. Log run record.",
+  "provenance": "hybrid",
+  "created_at": "2026-10-22T19:00:00Z",
+  "last_validated": "2026-10-22T19:00:00Z"
+}

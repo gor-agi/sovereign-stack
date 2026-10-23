@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RunRecord",
+  "type": "object",
+  "required": ["session_id", "timestamp", "manifest", "inputs", "decision_scores", "outcome", "provenance"],
+  "properties": {
+    "session_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "manifest": {
+      "type": "object",
+      "description": "Pinned versions",
+      "properties": {
+        "nemotron_checkpoint": {"type": "string"},
+        "decision_node": {"type": "string"},
+        "decision_node_version": {"type": "string"},
+        "retriever": {"type": "string"}
+      }
+    },
+    "inputs": {"type": "object"},
+    "retrieved_skills": {"type": "array", "items": {"type": "string"}},
+    "decision_scores": {
+      "type": "object",
+      "description": "Jev/Clef outputs"
+    },
+    "sandbox_results": {"type": "object"},
+    "outcome": {
+      "type": "string",
+      "enum": ["applied", "synthesized_and_promoted", "held", "failed", "shadow_only"]
+    },
+    "expected_outcome_met": {"type": "boolean"},
+    "provenance": {"type": "string", "enum": ["human", "model", "hybrid"]},
+    "notes": {"type": "string"}
+  }
+}

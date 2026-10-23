@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skill",
+  "type": "object",
+  "required": ["id", "name", "scope", "success_count", "body", "created_at"],
+  "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "scope": {
+      "type": "object",
+      "description": "Conditions under which this skill was validated",
+      "properties": {
+        "goal_types": {"type": "array", "items": {"type": "string"}},
+        "constraints": {"type": "array", "items": {"type": "string"}},
+        "notes": {"type": "string"}
+      }
+    },
+    "success_count": {"type": "integer", "minimum": 0},
+    "expected_outcome_definition": {"type": "string"},
+    "body": {"type": "string", "description": "Prompt, code, or steps"},
+    "provenance": {"type": "string", "enum": ["human", "model", "hybrid", "sandbox"]}, 
+    "created_at": {"type": "string", "format": "date-time"},
+    "last_validated": {"type": "string", "format": "date-time"}
+  }
+}

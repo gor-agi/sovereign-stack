@@ -1,0 +1,25 @@
+{
+  "local_model": {
+    "name": "nemotron",
+    "endpoint": "http://localhost:8000/v1",
+    "checkpoint": ""
+  },
+  "decision_node": {
+    "type": "jev",
+    "endpoint": "",
+    "api_key": ""
+  },
+  "retriever": {
+    "type": "nemo-retriever",
+    "local": true
+  },
+  "sandbox": {
+    "type": "grok-bot",
+    "agent_id": ""
+  },
+  "paths": {
+    "skills": "skills",
+    "run_records": "run_records",
+    "vault": "../vault"
+  }
+}
